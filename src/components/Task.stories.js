@@ -19,6 +19,13 @@ export const actions = {
 
 storiesOf('Task', module)
     .addDecorator(withKnobs)
+    .addParameters({
+        assets: [
+            'path/to/your/asset.png',
+            'path/to/another/asset.png',
+            'path/to/yet/another/asset.png'
+        ]
+    })
     .add('default',() => <Task task={object('task', {...task})} {...actions} />)
     .add('pinned',() => <Task task={{ ...task, state: 'TASK_PINNED' }} {...actions} />)
     .add('archived',() => <Task task={{ ...task, state: 'TASK_ARCHIVED' }} {...actions} />)
